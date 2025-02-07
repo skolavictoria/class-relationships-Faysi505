@@ -31,7 +31,7 @@ class Person
     private:
         void DisplayInfo()
         {
-            cout << name << 
+            cout << name << " " << age << endl;
         }
 }
 class Professor : public Person
@@ -52,6 +52,26 @@ class Student : public Person
     private:
         int StudentID;
         vector<Course*> LearnCourses;
+
+        void enrollCourse(Course* courses)
+        {
+            cout << "Which course would you like to add?" << endl;
+            for (int i = 0; i < sizeof(courses); i++)
+            {
+                cout << i+1 << ": --- "<< courses[i] << ". \n" << endl; 
+            }
+            int TempCourseNum;
+            cin >> TempCourseNum;
+            LearnCourses.push_back (courses[TempCourseNum]);
+        }
+        void displayCourses()
+        {
+            cout << "Student courses:" << endl;
+            for (int i = 0; i < sizeof(LearnCourses); i++)
+            {
+                cout << i+1 << ": ---"<< LearnCourses[i] << ". \n" << endl; 
+            }
+        }
 }
 
 int main()
